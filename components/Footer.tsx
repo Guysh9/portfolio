@@ -16,6 +16,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
+      id="contact"
       className="footer-root"
       style={{
         display: "grid",

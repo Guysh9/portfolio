@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main style={{ background: "radial-gradient(circle 1200px at 50% 0%, rgba(224, 90, 118, 0.2) 0%, transparent 70%)" }}>
+    <main>
       <Navbar />
       <Hero />
       <Showreel />

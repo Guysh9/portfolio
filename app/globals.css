@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/kollektif');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
@@ -6,7 +7,7 @@
   --color-surface: #111111;
   --color-pink: #e05a76;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-display: 'Kollektif', sans-serif;
+  --font-display: 'General Sans', sans-serif;
   --font-serif: var(--font-playfair), Georgia, serif;
 }
 
@@ -48,6 +49,26 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes videoGlow {
+  0%   { background: rgba(224, 90, 118, 0.38); }
+  18%  { background: rgba(200, 60, 140, 0.32); }
+  36%  { background: rgba(240, 110, 70, 0.28); }
+  54%  { background: rgba(90, 30, 160, 0.28); }
+  72%  { background: rgba(200, 50, 100, 0.34); }
+  100% { background: rgba(224, 90, 118, 0.38); }
+}
+
+/* Project pages — body text in General Sans */
+.project-section,
+.project-section p,
+.project-section li,
+.project-section span,
+.related-section p {
+  font-family: 'General Sans', sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .label-mono {
   font-family: var(--font-jetbrains-mono), monospace;
   font-size: 0.625rem;
@@ -68,9 +89,10 @@ body {
   /* Prevent horizontal overflow globally */
   body, html { overflow-x: hidden; max-width: 100vw; }
 
-  .nav-root       { padding: 0 16px !important; height: 64px !important; }
+  .nav-root       { padding: 0 16px !important; height: 64px !important; gap: 12px !important; }
   .nav-logo       { height: 36px !important; max-width: 120px !important; object-fit: contain !important; }
   .nav-btn        { padding: 6px 12px !important; font-size: 9px !important; white-space: nowrap !important; }
+  .nav-links      { display: none !important; }
 
   .hero-section   { padding: 24px 20px 16px !important; align-items: center !important; }
   .hero-section h1 { white-space: normal !important; font-size: clamp(28px, 12vw, 80px) !important; }

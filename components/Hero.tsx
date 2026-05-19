@@ -29,15 +29,16 @@ export default function Hero() {
         whileHover={{
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          WebkitTextStroke: "1.5px #e05a76",
+          WebkitTextStroke: "0.8px #e05a76",
           textShadow: "0 0 40px rgba(224, 90, 118, 0.35)",
           transition: { duration: 0.4, ease: "easeOut" },
         } as any}
         style={{
           cursor: "default",
+          display: "inline-block",
           paintOrder: "stroke fill",
           fontFamily: "var(--font-display), sans-serif",
-          fontWeight: 800,
+          fontWeight: 700,
           fontStyle: "italic",
           fontSize: "clamp(32px, 8vw, 110px)",
           lineHeight: 1,
