@@ -19,15 +19,12 @@ export default function Footer() {
       id="contact"
       className="footer-root"
       style={{
-        display: "grid",
-        gridTemplateColumns: "1.5fr 1fr",
-        gridTemplateRows: "1fr auto",
         padding: "120px 40px",
         background: "linear-gradient(to bottom, transparent, rgba(224, 90, 118, 0.05))",
       }}
     >
-      {/* Top-left: Headline */}
-      <motion.div {...anim(0)} style={{ gridColumn: 1, gridRow: 1 }}>
+      {/* Headline */}
+      <motion.div {...anim(0)}>
         <h2
           style={{
             fontFamily: "var(--font-display), sans-serif",
@@ -38,17 +35,21 @@ export default function Footer() {
             whiteSpace: "normal",
             color: "#e05a76",
             letterSpacing: "0.04em",
+            marginBottom: "48px",
           }}
         >
           Let&apos;s create<br />something together
         </h2>
       </motion.div>
 
-      {/* Top-right: empty */}
-      <div style={{ gridColumn: 2, gridRow: 1 }} />
+      {/* Bottom row — flex so it stacks cleanly on mobile via CSS */}
+      <div
+        className="footer-bottom"
+        style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}
+      >
 
-      {/* Bottom-left: Availability + Email */}
-      <motion.div {...anim(0)} style={{ gridColumn: 1, gridRow: 2, paddingTop: "40px" }}>
+      {/* Left: Availability + Email */}
+      <motion.div {...anim(0)} style={{ flex: 1 }}>
         <div
           style={{
             display: "flex",
@@ -103,14 +104,11 @@ export default function Footer() {
         </a>
       </motion.div>
 
-      {/* Bottom-right: Socials */}
+      {/* Right: Socials */}
       <motion.div
         {...anim(0.1)}
         className="footer-right"
         style={{
-          gridColumn: 2,
-          gridRow: 2,
-          paddingTop: "40px",
           display: "flex",
           flexDirection: "column",
           gap: "12px",
@@ -193,6 +191,8 @@ export default function Footer() {
           © 2026 GUY SHEMESH. ALL RIGHTS RESERVED.
         </div>
       </motion.div>
+
+      </div> {/* end footer-bottom */}
     </footer>
   );
 }

@@ -82,6 +82,19 @@ export default function AnimatedGradient() {
     };
 
     resize();
+    // Draw one frame synchronously so the canvas is fully painted before we
+    // reveal it — prevents the "stretched 1px blob" flash on page load.
+    draw(0);
+    // Short rAF delay lets the browser composite the first frame, then fade in.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (canvas) {
+          canvas.style.transition = "opacity 0.8s ease";
+          canvas.style.opacity = "0.45";
+        }
+      });
+    });
+
     window.addEventListener("resize", resize);
     document.addEventListener("visibilitychange", onVisibility);
     loop();
@@ -107,7 +120,7 @@ export default function AnimatedGradient() {
         pointerEvents: "none",
         zIndex: 0,
         filter: "blur(90px)",
-        opacity: 0.45,
+        opacity: 0, // starts hidden — JS fades it in after first proper frame
       }}
     />
   );

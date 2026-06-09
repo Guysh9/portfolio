@@ -95,7 +95,9 @@ body {
   .nav-links      { display: none !important; }
 
   .hero-section   { padding: 24px 20px 16px !important; align-items: center !important; }
-  .hero-section h1 { white-space: normal !important; font-size: clamp(28px, 12vw, 80px) !important; }
+  /* nowrap keeps "GUY." together — lone period was caused by each char being
+     its own inline-block that could break anywhere. Smaller font fits one line. */
+  .hero-section h1 { white-space: nowrap !important; font-size: clamp(20px, 9vw, 80px) !important; overflow: visible !important; }
   .hero-sub       { white-space: normal !important; font-size: 13px !important; max-width: 100% !important; width: 100% !important; text-align: center !important; }
 
   .showreel-wrap  { width: calc(100% - 40px) !important; }
@@ -103,11 +105,13 @@ body {
   .works-header   { padding: 40px 20px 0 !important; }
   .works-grid     { grid-template-columns: 1fr !important; padding: 0 20px !important; }
 
-  .footer-root    { grid-template-columns: 1fr !important; padding: 60px 20px !important; gap: 48px; align-items: start !important; }
-  .footer-root h2 { white-space: normal !important; font-size: clamp(28px, 8vw, 48px) !important; }
-  .footer-right   { text-align: left !important; }
+  .footer-root    { padding: 60px 20px !important; }
+  .footer-root h2 { font-size: clamp(28px, 8vw, 48px) !important; }
+  /* Stack left/right columns vertically on mobile */
+  .footer-bottom  { flex-direction: column !important; gap: 32px !important; }
+  .footer-right   { align-items: flex-start !important; }
   .footer-right a { justify-content: flex-start !important; }
-  .footer-copy    { margin-top: 24px !important; }
+  .footer-copy    { margin-top: 24px !important; text-align: left !important; }
 
   .project-section  { padding: 40px 20px !important; max-width: 100% !important; }
   .project-section p { max-width: 100% !important; }
